@@ -1,0 +1,189 @@
+package d2;
+import java.util.ArrayList;
+
+
+
+
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import d2.FoodDemo;
+
+import java.util.Collections;
+import java.util.HashMap;
+
+
+public class ReviewMain {
+	public static void main(String[] args) {
+		
+		Map<FoodDemo,List<Review>> allMap=new TreeMap<>();
+		TreeSet<FoodDemo> food=new TreeSet<>();
+		
+		FoodDemo f1 = new FoodDemo("Idli", "Tiffin", 25);
+		FoodDemo f2 = new FoodDemo("Chicken", "Non-Veg", 100);
+		FoodDemo f3 = new FoodDemo("Sambar", "Veg", 50);
+		
+		
+		Review r1=new Review("Good", "Archana", 4);
+		Review r2=new Review("Bad", "Raji", 2);
+		Review r3=new Review("Average", "Pavs", 3);
+		
+		
+		food.add(f1);
+		food.add(f2);
+		food.add(f3);
+		
+		List<Review> revList1 = new ArrayList<>();
+
+		List<Review> revList2 = new ArrayList<>();
+
+		List<Review> revList3 = new ArrayList<>();
+
+		List<Review> revList4 = new ArrayList<>();
+
+		List<Review> revList5 = new ArrayList<>();
+
+ 
+
+		revList1.add(r1);
+
+		revList1.add(r1);
+
+		revList1.add(r1);
+
+		allMap.put(f1, revList1);
+
+		
+
+		Review r2A = new Review("xyz", "Very Good", 4);
+
+		Review r3A = new Review("fgh", "Not Good ", 2);
+
+		Review r4A = new Review("kjj", "Very Good", 4);
+
+		Review r5A = new Review("osj", "Excellent", 5);
+
+		
+		revList2.add(r2A);
+
+		revList3.add(r3A);
+
+		revList4.add(r4A);
+
+		revList5.add(r5A);
+
+ 
+
+ 
+
+		allMap.put(f2, revList2);
+
+		allMap.put(f3, revList3);
+
+		
+		
+
+		
+
+		for(Map.Entry<FoodDemo,List<Review>> entry : allMap.entrySet())
+
+		{
+
+			  FoodDemo key = entry.getKey();
+
+			  List<Review> value = entry.getValue();
+
+ 
+
+			 System.out.println("---- "+key.getFoodItems()+"-------");
+
+			 System.out.println("Price rs. "+key.getCost());
+
+			 System.out.println("Category "+key.getCategory());
+
+ 
+
+			 System.out.println(" --- Reviews ---");
+
+			 for (Review review : value) {
+
+				for(int i=0;i<review.getRating();i++)
+
+				{
+
+					System.out.print("*");
+
+				}
+
+ 
+
+				 System.out.print(review.getComments()+"\n");
+
+			}
+
+			 System.out.println("-------------------------------------");
+
+			 System.out.println("\n\n");
+
+		}
+		
+		
+
+		for(Review reviews: revList1) {
+
+		 
+
+			System.out.println("    Username - "+reviews.getUserName());
+
+		 
+
+			try {
+
+		 
+
+				if(reviews.getUserName()== null ||reviews.getUserName().isEmpty()) {
+
+		 
+
+					throw new UserNameMissingException("Username Is Missing In Review.");
+
+		 
+
+				}
+
+		 
+
+				} catch (UserNameMissingException e) {
+
+		 
+
+					System.out.println(e);
+
+		 
+
+				}
+
+		 
+
+				System.out.println("    Rating Points - "+reviews.getRating());
+
+		 
+
+				System.out.println("    Comment - "+reviews.getComments()+"\n");
+
+		 
+
+			}
+
+		 
+
+			System.out.println("-------------------------------------");
+
+		 
+
+			};
+	} 
+
+

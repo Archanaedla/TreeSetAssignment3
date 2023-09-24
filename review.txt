@@ -1,0 +1,87 @@
+package d2;
+
+
+import java.util.Objects;
+
+public class Review implements Comparable<Review>{
+	private String comments;
+	private String userName;
+	private int rating;
+	
+	
+	public Review() {
+		
+	}
+
+	public Review(String comments, String userName, int rating) {
+		super();
+		this.comments = comments;
+		this.userName = userName;
+		this.rating = rating;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Review [comments=" + comments + ", userName=" + userName + ", rating=" + rating + "]";
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		return comments.length()+comments.length()+rating;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Review) {
+			
+		
+		Review review = (Review)obj;
+		
+		boolean a = review.comments.equals(this.getComments());
+		boolean b = review.rating==this.getRating();
+		boolean c = review.userName.equals(this.getUserName());
+		 return a&&b&&c;
+			
+	}
+	
+	
+	return false;
+}
+
+		
+	@Override
+	public int compareTo(Review review) {
+		
+		return this.getComments().compareTo(review.getComments());
+	}
+
+
+	}
+	
